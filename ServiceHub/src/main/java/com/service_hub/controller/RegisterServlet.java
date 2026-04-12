@@ -19,12 +19,13 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Serves the register.jsp page when the user navigates to /register
         request.getRequestDispatcher("/WEB-INF/pages/register.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            // Fetch Form data based exactly on Figma layout
+           
             String fullName = request.getParameter("full_name");
             String email = request.getParameter("email");
             String number = request.getParameter("number");
@@ -44,17 +45,18 @@ public class RegisterServlet extends HttpServlet {
             user.setEmail(email);
             user.setNumber(number);
             user.setPassword(password);
-            user.setRole("USER"); // Default role
+            user.setRole("USER"); // Default role for new sign-ups
 
-            // Call service to add user
+            // Call service to add user (handles BCrypt hashing and DB insertion)
             RegisterService service = new RegisterService();
             service.addUser(user);
             
-            // Redirect to login page after successful registration 
+            // Redirect to login page after successful registration, passing a success flag
             response.sendRedirect(request.getContextPath() + "/login?success=true");
             
         } catch (Exception e) {
             e.printStackTrace();
+            // Send the error message back to the UI if email/number already exists
             request.setAttribute("error", e.getMessage());
             request.getRequestDispatcher("/WEB-INF/pages/register.jsp").forward(request, response);
         }
