@@ -1,0 +1,156 @@
+/* =========================================
+   User Home / Services Styles (home.css)
+   ========================================= */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #F8F2E4; /* Figma Beige Background */
+    color: #49301E; /* Figma Brown Text */
+}
+
+.services-header { 
+    text-align: center; 
+    padding: 40px 20px; 
+    background: white; 
+    border-bottom: 1px solid #eae1ce; 
+    position: relative; 
+}
+
+.services-header h1 { 
+    font-size: 32px; 
+    color: #49301E; 
+    margin-bottom: 10px; 
+}
+
+.services-header p { 
+    color: #666; 
+    margin-bottom: 25px; 
+}
+
+.search-bar { 
+    max-width: 500px; 
+    margin: 0 auto; 
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus { 
+    border-color: #49301E; 
+}
+
+.filter-tabs { 
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
+    padding: 30px 20px 10px; 
+    flex-wrap: wrap; 
+}
+
+.filter-tabs button {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #666;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.filter-tabs button.active, 
+.filter-tabs button:hover {
+    background: #49301E; /* Figma Brown */
+    color: white;
+    border-color: #49301E;
+}
+
+.services-grid { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 25px; 
+    padding: 30px 40px 60px; 
+    justify-content: center; 
+}
+
+.service-card {
+    width: 320px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(73, 48, 30, 0.08); /* Soft brown shadow */
+}
+
+.service-info { 
+    padding: 25px; 
+}
+
+.category { 
+    color: #8A8A8A; 
+    font-size: 12px; 
+    text-transform: uppercase; 
+    font-weight: 600; 
+    letter-spacing: 0.5px; 
+}
+
+.service-info h3 { 
+    color: #49301E; 
+    margin: 8px 0 12px; 
+    font-size: 20px; 
+}
+
+.service-info p { 
+    color: #666; 
+    font-size: 14px; 
+    line-height: 1.5; 
+}
+
+.service-meta { 
+    display: flex; 
+    justify-content: space-between; 
+    margin: 20px 0; 
+    font-size: 13px; 
+    color: #555; 
+    font-weight: 500; 
+}
+
+.service-footer { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-top: 1px solid #eee; 
+    padding-top: 20px; 
+}
+
+.price { 
+    font-weight: bold; 
+    color: #49301E; 
+    font-size: 15px; 
+}
+
+.book-btn {
+    background: #2C362B; /* Figma Green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.book-btn:hover { 
+    background: #1e251d; 
+}
