@@ -1,0 +1,221 @@
+@charset "UTF-8";
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f1e9; /* Light cream background from UI */
+    color: #4a3425; /* Dark brown text */
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #4a3425;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+}
+
+.nav-links a {
+    color: #d3ccc3;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a.active, .nav-links a:hover {
+    color: white;
+}
+
+
+.login-btn {
+	
+    background: transparent;
+    color: var(--white);
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--beige);
+    transition: var(--transition);
+}
+.register-btn {
+    background: var(--green);
+    color: var(--white);
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+/* HERO SECTION */
+.hero {
+    height: 400px;
+    /* Use ../ to go out of CSS folder into webapp root */
+    background: url("../images/Aboutpage.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-overlay {
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-icon {
+    background: rgba(255,255,255,0.2);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 24px;
+}
+
+/* MISSION BOX - Overlapping */
+.mission-container {
+    padding: 0 10%;
+}
+
+.mission-box {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-top: -60px; /* Pulls it up over the hero */
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    line-height: 1.6;
+}
+
+.mission-box h2 {
+    margin-top: 0;
+    color: #4a3425;
+}
+
+/* STATS */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.stat-item h2 {
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    color: #7d6e63;
+    font-size: 14px;
+}
+
+/* JOIN BOX */
+.join-container {
+    padding: 0 10%;
+}
+
+.join-box {
+    background-color: #4a3425;
+    color: white;
+    padding: 50px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.btn-browse {
+    background-color: #d3ccc3;
+    color: #4a3425;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* CORE VALUES */
+.values-section {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.section-title {
+    margin-bottom: 40px;
+    font-size: 28px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.value-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.card-icon {
+    background: #f0ede6;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    color: #7d6e63;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #3b2a1e;
+    color: #d3ccc3;
+    padding: 50px 10% 20px;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #4a3425;
+}
+
+.footer h3, .footer h4 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    display: block;
+    color: #d3ccc3;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 13px;
+}
