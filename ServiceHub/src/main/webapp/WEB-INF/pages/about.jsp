@@ -1,5 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,27 +7,55 @@
     <title>About ServiceHub</title>
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Main CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/about.css">
 </head>
 <body>
 
     <!-- NAVBAR -->
-   <!-- NAVBAR -->
-<nav class="navbar">
-    <div class="logo">🔧 ServiceHub</div>
-    <div class="nav-links">
-        <a href="${pageContext.request.contextPath}/home">Home</a>
-        <a href="${pageContext.request.contextPath}/services">Services</a>
-        <a href="${pageContext.request.contextPath}/about">About</a>
-         <a href="${pageContext.request.contextPath}/login" class="login-btn">Login</a>
-        <a href="${pageContext.request.contextPath}/register" class="register-btn">Register</a>
-    </div>
-</nav>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-wrench"></i> ServiceHub
+        </div>
+        <ul class="nav-links">
+            <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
+            <li><a href="${pageContext.request.contextPath}/services">Services</a></li>
+            <li><a href="${pageContext.request.contextPath}/about" class="active">About</a></li>
+        </ul>
+        <div class="nav-right">
+            <c:choose>
+                <c:when test="${sessionScope.isLoggedIn == true}">
+                    <span class="welcome-text">
+                        <i class="fas fa-user-circle"></i> 
+                        ${sessionScope.fullName != null ? sessionScope.fullName : sessionScope.username}
+                    </span>
+                    <a href="${pageContext.request.contextPath}/User" class="User-btn">
+                        <i class="fas fa-tachometer-alt"></i> User Dashboard
+                    </a>
+                    <a href="${pageContext.request.contextPath}/logout" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </c:when>
+                <c:otherwise>
+                    <a href="${pageContext.request.contextPath}/login" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                    <a href="${pageContext.request.contextPath}/register" class="register-btn">
+                        <i class="fas fa-user-plus"></i> Register
+                    </a>
+                </c:otherwise>
+            </c:choose>
+        </div>
+    </nav>
+
     <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-overlay">
-            <div class="hero-icon"><i class="fas fa-wrench"></i></div>
+            <div class="hero-icon">
+                <i class="fas fa-wrench"></i>
+            </div>
             <h1>About ServiceHub</h1>
             <p>Your trusted platform for connecting with professional home service providers</p>
         </div>
@@ -37,16 +65,8 @@
     <section class="mission-container">
         <div class="mission-box">
             <h2>Our Mission</h2>
-            <p>
-                HomeService was founded with a simple mission: to make finding and booking reliable 
-                home service professionals as easy as possible. We understand that your home is your 
-                most valuable asset, and you deserve the best care for it.
-            </p>
-            <p>
-                We carefully vet all our service providers to ensure they meet our high standards of 
-                professionalism, quality, and reliability. Our platform brings together skilled professionals 
-                and homeowners, creating a seamless experience for all your home service needs.
-            </p>
+            <p>HomeService was founded with a simple mission: to make finding and booking reliable home service professionals as easy as possible. We understand that your home is your most valuable asset, and you deserve the best care for it.</p>
+            <p>We carefully vet all our service providers to ensure they meet our high standards of professionalism, quality, and reliability. Our platform brings together skilled professionals and homeowners, creating a seamless experience for all your home service needs.</p>
         </div>
     </section>
 
@@ -72,17 +92,13 @@
 
     <!-- JOIN BOX -->
     <section class="join-container">
-       <div class="join-box">
-    <h2>Join Thousands of Satisfied Customers</h2>
-    <p>Experience the convenience of professional home services at your fingertips</p>
-
-    <!-- Change: Added ?action=browse to the URL -->
-    <form action="${pageContext.request.contextPath}/about" method="get">
-        <button type="submit" name="action" value="browse" class="btn-browse">
-            Browse Services
-        </button>
-    </form>
-</div>
+        <div class="join-box">
+            <h2>Join Thousands of Satisfied Customers</h2>
+            <p>Experience the convenience of professional home services at your fingertips</p>
+            <form action="${pageContext.request.contextPath}/about" method="get">
+                <button type="submit" name="action" value="browse" class="btn-browse">Browse Services</button>
+            </form>
+        </div>
     </section>
 
     <!-- CORE VALUES -->
@@ -90,22 +106,30 @@
         <h2 class="section-title">Our Core Values</h2>
         <div class="values-grid">
             <div class="value-card">
-                <div class="card-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="card-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
                 <h3>Quality Service</h3>
                 <p>We ensure all our service providers deliver top-quality work with professional standards.</p>
             </div>
             <div class="value-card">
-                <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="card-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
                 <h3>Trust & Safety</h3>
                 <p>All professionals are verified, background-checked, and insured for your peace of mind.</p>
             </div>
             <div class="value-card">
-                <div class="card-icon"><i class="fas fa-users"></i></div>
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
                 <h3>Customer First</h3>
                 <p>Your satisfaction is our priority. We're committed to providing excellent customer service.</p>
             </div>
             <div class="value-card">
-                <div class="card-icon"><i class="fas fa-medal"></i></div>
+                <div class="card-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
                 <h3>Excellence</h3>
                 <p>We strive for excellence in every service, ensuring consistent quality and reliability.</p>
             </div>
@@ -121,19 +145,19 @@
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>
-                <a href="#">Services</a>
-                <a href="#">About Us</a>
+                <a href="${pageContext.request.contextPath}/services">Services</a>
+                <a href="${pageContext.request.contextPath}/about">About Us</a>
                 <a href="#">Contact</a>
             </div>
             <div class="footer-contact">
                 <h4>Contact Info</h4>
-                <p>Email: info@homeservice.com</p>
-                <p>Phone: +977 9841234567</p>
-                <p>Address: Kathmandu, Nepal</p>
+                <p><i class="far fa-envelope"></i> info@servicehub.com</p>
+                <p><i class="fas fa-phone-alt"></i> +977 9841234567</p>
+                <p><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 HomeService. All rights reserved.</p>
+            <p>&copy; 2026 ServiceHub. All rights reserved.</p>
         </div>
     </footer>
 

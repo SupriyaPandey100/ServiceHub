@@ -73,23 +73,18 @@ p {
     font-size: 0.95rem;
 }
 
-/* ================= HEADER STYLES ================= */
-.main-header {
-    background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown) 100%);
-    padding: 1rem 0;
+/* ================= NEW HEADER STYLES ================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    background-color: var(--brown);
+    color: var(--white);
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: var(--shadow-md);
-}
-
-.header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 5%;
 }
 
 .logo {
@@ -111,10 +106,10 @@ p {
     opacity: 0.95;
 }
 
-/* Navigation */
 .nav-links {
+    list-style: none;
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem;
     align-items: center;
 }
 
@@ -122,7 +117,6 @@ p {
     text-decoration: none;
     color: var(--white);
     font-weight: 500;
-    font-size: 1rem;
     transition: var(--transition);
     position: relative;
 }
@@ -146,34 +140,57 @@ p {
     color: var(--beige);
 }
 
-/* Auth Buttons */
-.header-auth {
+.nav-right {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 15px;
 }
 
-.login-btn {
-    background: transparent;
-    color: var(--white);
+.nav-right i {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Button Styles for Auth */
+.btn {
+    background: var(--green);
     padding: 8px 20px;
     border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Specific button styles */
+.login-btn {
+    background: transparent;
+    border: 2px solid var(--beige);
+    padding: 8px 20px;
+    border-radius: 8px;
+    color: var(--white);
     font-weight: 600;
     text-decoration: none;
-    border: 1px solid var(--beige);
     transition: var(--transition);
 }
 
 .login-btn:hover {
     background: var(--beige);
     color: var(--brown);
+    transform: translateY(-2px);
 }
 
 .register-btn {
     background: var(--green);
-    color: var(--white);
     padding: 8px 20px;
     border-radius: 8px;
+    color: var(--white);
     font-weight: 600;
     text-decoration: none;
     transition: var(--transition);
@@ -187,16 +204,60 @@ p {
 
 .logout-btn {
     background: var(--brown-light);
-    color: var(--white);
     padding: 8px 20px;
     border-radius: 8px;
+    color: var(--white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+.User-btn {
+    background: var(--green);
+    padding: 8px 20px;
+    border-radius: 8px;
+    color: var(--white);
     font-weight: 600;
     text-decoration: none;
     transition: var(--transition);
 }
 
-.logout-btn:hover {
+.User-btn:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.User-btn:hover {
     background: var(--brown-dark);
+    transform: translateY(-2px);
+}
+
+.User dashboard-btn {
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+    padding: 8px 20px;
+    border-radius: 8px;
+    color: var(--white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.User dashboard-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(44, 54, 43, 0.3);
+}
+
+.welcome-text {
+    color: var(--beige);
+    font-weight: 500;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.welcome-text i {
+    font-size: 1.1rem;
 }
 
 /* ================= HERO SECTION ================= */
@@ -426,6 +487,17 @@ p {
     transform: scale(1.02);
 }
 
+/* Book Form */
+.book-form {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.book-form .book-btn {
+    width: 100%;
+}
+
 /* No Results */
 .no-results {
     text-align: center;
@@ -650,6 +722,113 @@ p {
     transform: translateY(-2px);
 }
 
+/* ================= LOGIN POPUP MODAL STYLES ================= */
+.popup-modal {
+    max-width: 450px;
+}
+
+.login-warning {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.warning-icon {
+    font-size: 3rem;
+    color: #f39c12;
+    margin-bottom: 1rem;
+}
+
+.login-warning p {
+    font-size: 1.1rem;
+    color: var(--brown);
+    font-weight: 500;
+}
+
+.service-info-preview {
+    background: var(--beige);
+    padding: 1rem;
+    border-radius: 12px;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.service-info-preview h4 {
+    color: var(--brown);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.service-info-preview p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.service-info-preview strong {
+    color: var(--green);
+    font-size: 1rem;
+}
+
+.popup-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.cancel-popup-btn {
+    background: var(--gray-light);
+    color: var(--gray-dark);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+    cursor: pointer;
+}
+
+.cancel-popup-btn:hover {
+    background: var(--beige-dark);
+    transform: translateY(-2px);
+}
+
+.login-popup-btn {
+    background: var(--green);
+    color: var(--white);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+    cursor: pointer;
+}
+
+.login-popup-btn:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.close-modal-link {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    line-height: 1;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.close-modal-link:hover {
+    opacity: 0.7;
+    transform: rotate(90deg);
+}
+
 /* Toast Message */
 .toast-message {
     position: fixed;
@@ -730,6 +909,7 @@ p {
     border-radius: 50%;
     color: var(--beige);
     transition: var(--transition);
+    text-decoration: none;
 }
 
 .social-links a:hover {
@@ -822,20 +1002,24 @@ p {
 
 /* Mobile */
 @media (max-width: 768px) {
-    .header-flex {
+    .navbar {
         flex-direction: column;
         gap: 1rem;
         padding: 1rem;
     }
     
     .nav-links {
-        gap: 1.5rem;
+        gap: 1rem;
         flex-wrap: wrap;
         justify-content: center;
     }
     
     .nav-links a {
         font-size: 0.9rem;
+    }
+    
+    .nav-right {
+        margin-top: 0.5rem;
     }
     
     .services-hero {
@@ -914,6 +1098,15 @@ p {
         left: 1rem;
         text-align: center;
         justify-content: center;
+    }
+    
+    .popup-actions {
+        flex-direction: column;
+    }
+    
+    .cancel-popup-btn,
+    .login-popup-btn {
+        text-align: center;
     }
 }
 

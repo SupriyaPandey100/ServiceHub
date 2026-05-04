@@ -45,40 +45,39 @@ public class ServiceServlet extends HttpServlet {
         
         services.add(new Service("Plumbing Repairs", "Plumbing", 1500, 4.8, 156, "2 hours", 
             "Professional plumbing repair services for leaks, clogs, and pipes", 
-            "images/plumbing.jpg"));  // Added "images/" folder
+            "images/plumbing.jpg"));
             
         services.add(new Service("Electrical Installation", "Electrical", 2000, 4.9, 208, "3 hours", 
             "Licensed electricians for wiring and installations", 
-            "images/electrical.jpg"));  // Added "images/" folder
+            "images/electrical.jpg"));
             
         services.add(new Service("House Painting", "Painting", 5000, 4.8, 199, "1 day", 
             "Interior and exterior painting with premium quality paints", 
-            "images/painting.jpg"));  // Added "images/" folder
+            "images/painting.jpg"));
             
         services.add(new Service("Deep Cleaning", "Cleaning", 3000, 4.7, 122, "4 hours", 
             "Complete deep cleaning for your home", 
-            "images/cleaning.jpg"));  // Added "images/" folder
+            "images/cleaning.jpg"));
             
         services.add(new Service("AC Service & Repair", "AC Repair", 1800, 4.9, 187, "2 hours", 
             "Air conditioner servicing and maintenance", 
-            "images/ac-repair.jpg"));  // Added "images/" folder
+            "images/ac-repair.jpg"));
             
         services.add(new Service("Custom Carpentry", "Carpentry", 4000, 4.8, 145, "1 day", 
             "Custom furniture and woodwork solutions", 
-            "images/carpentry.jpg"));  // Added "images/" folder
+            "images/carpentry.jpg"));
             
         services.add(new Service("Kitchen Plumbing", "Plumbing", 1800, 4.7, 111, "2 hours", 
             "Sink and kitchen plumbing services", 
-            "images/kitchen-plumbing.jpg"));  // Added "images/" folder
+            "images/kitchen-plumbing.jpg"));
             
         services.add(new Service("Appliance Repair", "Electrical", 1200, 4.8, 124, "1 hour", 
             "Repair services for home appliances", 
-            "images/appliance-repair.jpg"));  // Added "images/" folder
+            "images/appliance-repair.jpg"));
             
         return services;
     }
     
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
@@ -88,12 +87,14 @@ public class ServiceServlet extends HttpServlet {
         List<Service> allServices = getAllServices();
         List<Service> filteredServices = allServices;
         
+        // Apply category filter
         if (categoryFilter != null && !categoryFilter.isEmpty() && !categoryFilter.equals("all")) {
             filteredServices = allServices.stream()
                 .filter(service -> service.getCategory().equalsIgnoreCase(categoryFilter))
                 .collect(Collectors.toList());
         }
         
+        // Apply search filter
         if (searchQuery != null && !searchQuery.trim().isEmpty()) {
             String searchLower = searchQuery.toLowerCase().trim();
             filteredServices = filteredServices.stream()
@@ -104,10 +105,12 @@ public class ServiceServlet extends HttpServlet {
                 .collect(Collectors.toList());
         }
         
+        // Set attributes for JSP
         request.setAttribute("services", filteredServices);
         request.setAttribute("selectedCategory", categoryFilter != null ? categoryFilter : "all");
         request.setAttribute("searchQuery", searchQuery != null ? searchQuery : "");
         
+        // Forward to JSP
         request.getRequestDispatcher("/WEB-INF/pages/service.jsp").forward(request, response);
     }
 }
